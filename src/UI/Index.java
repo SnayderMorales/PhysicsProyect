@@ -9,8 +9,9 @@ package UI;
  *
  * @author jorge
  */
+import java.math.*;
 public class Index extends javax.swing.JFrame {
-
+ 
     /**
      * Creates new form Index
      */
@@ -32,11 +33,16 @@ public class Index extends javax.swing.JFrame {
         CampoElectrico = new javax.swing.JPanel();
         jTabbedPane4 = new javax.swing.JTabbedPane();
         jPanel15 = new javax.swing.JPanel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
+        altura = new javax.swing.JTextField();
+        distancia = new javax.swing.JTextField();
+        radio = new javax.swing.JTextField();
         jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
+        carga = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jPanel16 = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
@@ -47,7 +53,7 @@ public class Index extends javax.swing.JFrame {
         jPanel5 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        Cilindrohueco = new javax.swing.JButton();
         panel2 = new javax.swing.JPanel();
         jTabbedPane7 = new javax.swing.JTabbedPane();
         jPanel23 = new javax.swing.JPanel();
@@ -89,19 +95,28 @@ public class Index extends javax.swing.JFrame {
         jLabel14 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setSize(new java.awt.Dimension(400, 400));
 
         jTabbedPane3.setTabPlacement(javax.swing.JTabbedPane.LEFT);
 
         jPanel15.setLayout(null);
 
-        jTextField1.setText("jTextField1");
-        jPanel15.add(jTextField1);
-        jTextField1.setBounds(190, 70, 59, 20);
-        jPanel15.add(jTextField2);
-        jTextField2.setBounds(310, 110, 6, 20);
-        jPanel15.add(jTextField3);
-        jTextField3.setBounds(270, 100, 20, 20);
+        altura.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                alturaActionPerformed(evt);
+            }
+        });
+        jPanel15.add(altura);
+        altura.setBounds(190, 70, 70, 20);
+
+        distancia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                distanciaActionPerformed(evt);
+            }
+        });
+        jPanel15.add(distancia);
+        distancia.setBounds(310, 110, 40, 20);
+        jPanel15.add(radio);
+        radio.setBounds(270, 100, 20, 20);
 
         jTextField4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -110,14 +125,35 @@ public class Index extends javax.swing.JFrame {
         });
         jPanel15.add(jTextField4);
         jTextField4.setBounds(280, 170, 40, 20);
-        jPanel15.add(jTextField5);
-        jTextField5.setBounds(169, 170, 40, 20);
+        jPanel15.add(carga);
+        carga.setBounds(169, 170, 40, 20);
+
+        jLabel1.setText("h(m)");
+        jPanel15.add(jLabel1);
+        jLabel1.setBounds(210, 40, 34, 30);
+
+        jLabel2.setText("R(m)");
+        jPanel15.add(jLabel2);
+        jLabel2.setBounds(270, 80, 30, 14);
+
+        jLabel5.setText("d(m)");
+        jPanel15.add(jLabel5);
+        jLabel5.setBounds(320, 84, 30, 20);
+
+        jLabel6.setText("jLabel6");
+        jPanel15.add(jLabel6);
+        jLabel6.setBounds(290, 150, 34, 14);
+
+        jLabel7.setText("jLabel7");
+        jPanel15.add(jLabel7);
+        jLabel7.setBounds(170, 150, 34, 14);
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/CilindroHueco.png"))); // NOI18N
+        jLabel8.setText("jLabel8");
         jPanel15.add(jLabel8);
-        jLabel8.setBounds(90, 20, 320, 200);
+        jLabel8.setBounds(90, 30, 290, 180);
 
-        jTabbedPane4.addTab("tab2", jPanel15);
+        jTabbedPane4.addTab("Cilindro Hueco", jPanel15);
 
         jButton2.setText("RESOLVER");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -143,7 +179,7 @@ public class Index extends javax.swing.JFrame {
                 .addGap(25, 25, 25))
         );
 
-        jTabbedPane4.addTab("tab3", jPanel16);
+        jTabbedPane4.addTab("Cilindro Solido", jPanel16);
 
         jButton3.setText("RESOLVER");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -169,7 +205,7 @@ public class Index extends javax.swing.JFrame {
                 .addGap(25, 25, 25))
         );
 
-        jTabbedPane4.addTab("tab4", jPanel17);
+        jTabbedPane4.addTab("Disco", jPanel17);
 
         jButton4.setText("RESOLVER");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -201,10 +237,10 @@ public class Index extends javax.swing.JFrame {
 
         jLabel4.setText("resultado");
 
-        jButton1.setText("RESOLVER");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        Cilindrohueco.setText("RESOLVER");
+        Cilindrohueco.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                CilindrohuecoActionPerformed(evt);
             }
         });
 
@@ -214,7 +250,7 @@ public class Index extends javax.swing.JFrame {
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGap(38, 38, 38)
-                .addComponent(jButton1)
+                .addComponent(Cilindrohueco)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(36, 36, 36)
@@ -228,7 +264,7 @@ public class Index extends javax.swing.JFrame {
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton1))
+                    .addComponent(Cilindrohueco))
                 .addGap(29, 29, 29))
         );
 
@@ -734,9 +770,13 @@ public class Index extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void CilindrohuecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CilindrohuecoActionPerformed
+        double altura=Double.parseDouble(this.altura.getText()), 
+                radio=Double.parseDouble(this.radio.getText()), 
+                carga=Double.parseDouble(this.carga.getText()), 
+                distancia=Double.parseDouble(this.distancia.getText()), campo;
+        campo = ((Math.pow(9*10,9)*carga)/altura)*(-1/Math.sqrt(Math.pow(distancia+altura, 2)+Math.pow(radio, 2)));
+    }//GEN-LAST:event_CilindrohuecoActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
@@ -802,6 +842,14 @@ public class Index extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField4ActionPerformed
 
+    private void alturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alturaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_alturaActionPerformed
+
+    private void distanciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_distanciaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_distanciaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -839,7 +887,10 @@ public class Index extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel CampoElectrico;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton Cilindrohueco;
+    private javax.swing.JTextField altura;
+    private javax.swing.JTextField carga;
+    private javax.swing.JTextField distancia;
     private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton14;
     private javax.swing.JButton jButton15;
@@ -855,13 +906,18 @@ public class Index extends javax.swing.JFrame {
     private javax.swing.JButton jButton24;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel10;
@@ -890,13 +946,10 @@ public class Index extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPane7;
     private javax.swing.JTabbedPane jTabbedPane8;
     private javax.swing.JTabbedPane jTabbedPane9;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
     private javax.swing.JPanel panel2;
     private javax.swing.JPanel panel3;
     private javax.swing.JPanel panel4;
+    private javax.swing.JTextField radio;
     // End of variables declaration//GEN-END:variables
 }
